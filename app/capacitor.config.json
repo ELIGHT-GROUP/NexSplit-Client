@@ -1,0 +1,22 @@
+{
+  "appId": "com.nexsplit.app",
+  "appName": "nexsplit",
+  "webDir": "core/dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  },
+  "icons": {
+    "android": {
+      "mdpi": "core/public/assets/android-chrome-192x192.png",
+      "hdpi": "core/public/assets/android-chrome-192x192.png",
+      "xhdpi": "core/public/assets/android-chrome-512x512.png",
+      "xxhdpi": "core/public/assets/android-chrome-512x512.png",
+      "xxxhdpi": "core/public/assets/android-chrome-512x512.png"
+    },
+    "ios": {
+      "icon": "core/public/assets/apple-touch-icon.png"
+    }
+  }
+}

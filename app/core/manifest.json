@@ -1,0 +1,13 @@
+{
+  "name": "NexSplit",
+  "short_name": "NexSplit",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/react.svg",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
