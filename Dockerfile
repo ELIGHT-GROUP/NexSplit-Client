@@ -58,8 +58,8 @@ COPY app/ .
 RUN echo '#!/bin/bash\n\
 set -e\n\
 echo "Installing Capacitor dependencies..."\n\
-npm install\n\
-cd core && npm install && cd ..\n\
+npm install --no-package-lock\n\
+cd core && npm install --no-package-lock && cd ..\n\
 \n\
 echo "Building web assets..."\n\
 cd core && npm run build && cd ..\n\

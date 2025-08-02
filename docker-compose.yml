@@ -4,8 +4,8 @@ services:
   android-builder:
     build: .
     volumes:
-      # Mount the source code
-      - ./app:/app:ro
+      # Mount the source code (read-write for npm install)
+      - ./app:/app
       # Output directory for build artifacts
       - ./build-output:/build-output
       # Cache volume for Gradle dependencies
