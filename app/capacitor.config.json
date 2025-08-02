@@ -4,7 +4,13 @@
   "webDir": "core/dist",
   "plugins": {
     "SplashScreen": {
-      "launchAutoHide": false
+      "launchAutoHide": false,
+      "backgroundColor": "#FFFFFF",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
     }
   },
   "icons": {
@@ -18,5 +24,8 @@
     "ios": {
       "icon": "core/public/assets/apple-touch-icon.png"
     }
+  },
+  "server": {
+    "androidScheme": "https"
   }
 }

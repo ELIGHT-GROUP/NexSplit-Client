@@ -27,11 +27,10 @@ RUN mkdir -p $ANDROID_HOME/cmdline-tools && \
     rm /tmp/cmdline-tools.zip
 
 # Accept licenses and install required SDK components
-RUN yes | sdkmanager --licenses && \
-    sdkmanager "platform-tools" \
+RUN yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses && \
+    $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" \
     "platforms;android-35" \
-    "build-tools;35.0.0" \
-    "cmdline-tools;latest"
+    "build-tools;35.0.0"
 
 # Install Gradle (compatible with Android Gradle Plugin 8.7.2)
 RUN wget -q https://services.gradle.org/distributions/gradle-8.7-bin.zip -O /tmp/gradle.zip && \
@@ -54,24 +53,8 @@ RUN npm install -g @capacitor/cli && \
 # Copy the entire project
 COPY app/ .
 
-# Create build script
-RUN echo '#!/bin/bash\n\
-set -e\n\
-echo "Installing Capacitor dependencies..."\n\
-npm install --no-package-lock\n\
-cd core && npm install --no-package-lock && cd ..\n\
-\n\
-echo "Building web assets..."\n\
-cd core && npm run build && cd ..\n\
-\n\
-echo "Syncing Capacitor..."\n\
-npx cap sync android\n\
-\n\
-echo "Building Android APK..."\n\
-cd android && chmod +x ./gradlew && ./gradlew assembleDebug && cd ..\n\
-\n\
-echo "Build completed! APK should be in android/app/build/outputs/apk/debug/"\n\
-' > /build.sh && chmod +x /build.sh
+# Make build script executable
+RUN chmod +x /app/build.sh
 
 # Set the default command
 CMD ["/app/build.sh"] 
