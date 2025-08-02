@@ -1,4 +1,4 @@
-version: "3.8"
+# Docker Compose configuration for Android build
 
 services:
   android-builder:
@@ -18,7 +18,7 @@ services:
       sh -c "
         echo 'Starting Android build process...' &&
         cd /app &&
-        ./build.sh &&
+        /build.sh &&
         echo 'Copying build artifacts to output volume...' &&
         cp -r android/app/build/outputs/apk/debug/* /build-output/ 2>/dev/null || true &&
         cp -r android/app/build/outputs/apk/release/* /build-output/ 2>/dev/null || true &&

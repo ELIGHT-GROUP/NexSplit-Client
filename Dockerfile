@@ -65,7 +65,7 @@ echo "Building Android APK..."\n\
 cd android && ./gradlew assembleDebug && cd ..\n\
 \n\
 echo "Build completed! APK should be in android/app/build/outputs/apk/debug/"\n\
-' > /app/build.sh && chmod +x /app/build.sh
+' > /build.sh && chmod +x /build.sh
 
 # Set the default command
 CMD ["/app/build.sh"] 
