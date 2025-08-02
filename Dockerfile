@@ -68,7 +68,7 @@ echo "Syncing Capacitor..."\n\
 npx cap sync android\n\
 \n\
 echo "Building Android APK..."\n\
-cd android && ./gradlew assembleDebug && cd ..\n\
+cd android && chmod +x ./gradlew && ./gradlew assembleDebug && cd ..\n\
 \n\
 echo "Build completed! APK should be in android/app/build/outputs/apk/debug/"\n\
 ' > /build.sh && chmod +x /build.sh
