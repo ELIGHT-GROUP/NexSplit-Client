@@ -12,9 +12,12 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     git \
-    nodejs \
-    npm \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
 # Download and install Android SDK
 RUN mkdir -p $ANDROID_HOME/cmdline-tools && \
@@ -45,6 +48,7 @@ COPY app/core/package*.json ./core/
 
 # Install Node.js dependencies
 RUN npm install -g @capacitor/cli && \
+    npm install && \
     cd core && npm install && cd ..
 
 # Copy the entire project
@@ -52,7 +56,9 @@ COPY app/ .
 
 # Create build script
 RUN echo '#!/bin/bash\n\
+set -e\n\
 echo "Installing Capacitor dependencies..."\n\
+npm install\n\
 cd core && npm install && cd ..\n\
 \n\
 echo "Building web assets..."\n\
