@@ -5,8 +5,6 @@ services:
     build: .
     volumes:
       # Mount the source code
-      - ./app:/app/app:ro
-      # Mount the project root for Capacitor config
       - ./app:/app:ro
       # Output volume for build artifacts
       - android-builds:/app/build-output
@@ -23,7 +21,7 @@ services:
         cd /app &&
         ./build.sh &&
         echo 'Copying build artifacts to output volume...' &&
-        cp -r android/app/build/outputs/apk/debug/* /app/build-output/ &&
+        cp -r android/app/build/outputs/apk/debug/* /app/build-output/ 2>/dev/null || true &&
         cp -r android/app/build/outputs/apk/release/* /app/build-output/ 2>/dev/null || true &&
         echo 'Build artifacts copied to /app/build-output/' &&
         ls -la /app/build-output/

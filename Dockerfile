@@ -48,7 +48,7 @@ RUN npm install -g @capacitor/cli && \
     cd core && npm install && cd ..
 
 # Copy the entire project
-COPY . .
+COPY app/ .
 
 # Create build script
 RUN echo '#!/bin/bash\n\
