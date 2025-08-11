@@ -1,0 +1,9 @@
+.main-container {
+  flex: 1;
+  height: 100vh;
+}
+
+.auth-container {
+  flex: 1;
+  height: 100vh;
+}
