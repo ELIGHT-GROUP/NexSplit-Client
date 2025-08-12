@@ -4,11 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "docker:build": "docker build -t expo-android-builder .",
+    "build:android:prebuild": "docker run --rm -v $(pwd):/app expo-android-builder bash -c \"npm install && npx expo prebuild\"",
+    "build:android:assemble": "docker run --rm -v $(pwd):/app -v $(pwd)/build-output:/app/android/app/build/outputs expo-android-builder bash -c \"cd android && ./gradlew assembleRelease\"",
+    "build:android": "npm run docker:build && npm run build:android:prebuild && npm run build:android:assemble"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
