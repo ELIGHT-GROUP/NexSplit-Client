@@ -17,6 +17,17 @@ RUN ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools/bin/sdkmanager \
     "platforms;android-34" \
     "build-tools;34.0.0"
 
+# Install Android NDK 25 (downgrade from 27 to fix build errors)
+ENV ANDROID_NDK_VERSION=25.2.9519653
+RUN wget https://dl.google.com/android/repository/android-ndk-r25b-linux.zip -O /android-ndk.zip && \
+    unzip /android-ndk.zip -d ${ANDROID_SDK_ROOT} && \
+    rm /android-ndk.zip && \
+    mv ${ANDROID_SDK_ROOT}/android-ndk-r25b ${ANDROID_SDK_ROOT}/ndk
+
+# Set environment variables for NDK
+ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk
+ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/ndk
+
 # Install Expo CLI
 RUN npm install -g expo-cli
 
