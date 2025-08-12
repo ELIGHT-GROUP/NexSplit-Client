@@ -3,36 +3,32 @@ FROM node:20-bullseye
 # Install Java (needed for Android build)
 RUN apt-get update && apt-get install -y openjdk-17-jdk wget unzip && apt-get clean
 
-# Install Android SDK
+# Set Android SDK root path
 ENV ANDROID_SDK_ROOT /opt/android-sdk
+
+# Install Android SDK command line tools
 RUN mkdir -p ${ANDROID_SDK_ROOT} && \
     wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /cmdline-tools.zip && \
     unzip /cmdline-tools.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools && \
     rm /cmdline-tools.zip
 
-# Install required SDK packages
+# Accept licenses and install required packages, including the exact NDK version needed
 RUN yes | ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools/bin/sdkmanager --licenses
+
 RUN ${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools/bin/sdkmanager \
     "platform-tools" \
     "platforms;android-34" \
-    "build-tools;34.0.0"
+    "build-tools;34.0.0" \
+    "ndk;27.0.12077973"
 
-# Install Android NDK 25 (downgrade from 27 to fix build errors)
-ENV ANDROID_NDK_VERSION=25.2.9519653
-RUN wget https://dl.google.com/android/repository/android-ndk-r25b-linux.zip -O /android-ndk.zip && \
-    unzip /android-ndk.zip -d ${ANDROID_SDK_ROOT} && \
-    rm /android-ndk.zip && \
-    mv ${ANDROID_SDK_ROOT}/android-ndk-r25b ${ANDROID_SDK_ROOT}/ndk
+# Set environment variables for NDK and SDK
+ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/27.0.12077973
+ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/cmdline-tools/cmdline-tools/bin
 
-# Set environment variables for NDK
-ENV ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk
-ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/ndk
-
-# Install Expo CLI
+# Install Expo CLI globally
 RUN npm install -g expo-cli
 
-# Set workdir
+# Set working directory inside the container
 WORKDIR /app
 
-# Default command
 CMD ["bash"]
