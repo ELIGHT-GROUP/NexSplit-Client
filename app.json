@@ -25,7 +25,8 @@
     },
     "splash": {
       "backgroundColor": "#ffffff",
-      "resizeMode": "contain"
+      "resizeMode": "contain",
+      "image": "./assets/images/splash-icon.png"
     },
     "experiments": {
       "typedRoutes": true
