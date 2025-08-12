@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { StatusBar, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {useBgColor} from "@/stores/BgColorStatus";
 
@@ -9,6 +9,7 @@ const SafeScreen = ({ children }: { children: React.ReactNode }) => {
   return (
     <View className={`${bgColor} flex-1`} style={{ paddingTop: insets.top }}>
       {children}
+      <StatusBar barStyle="dark-content" />
     </View>
   );
 };
