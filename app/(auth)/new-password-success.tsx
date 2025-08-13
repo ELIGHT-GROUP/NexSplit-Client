@@ -8,16 +8,18 @@ export default function NewPasswordSuccess() {
 
   return (
     <View className="flex-1 items-center">
-      <View className="w-full h-full max-w-md px-6 py-12 flex flex-col items-center justify-center">
+      <View className="w-full h-full max-w-md px-6 py-12 flex flex-col items-start justify-center">
         {/* Lottie Animation */}
-        <View className="flex items-center justify-center w-[200px] h-[200px] overflow-hidden">
-          <LottieView
-            source={require("../../assets/animation/password-reset-success.json")}
-            autoPlay
-            loop={false}
-            resizeMode="contain"
-            style={{ width: "100%", height: "100%" }}
-          />
+        <View className="flex items-center justify-center w-full">
+          <View className="flex items-center justify-center w-[200px] h-[200px] overflow-hidden">
+            <LottieView
+              source={require("../../assets/animation/password-reset-success.json")}
+              autoPlay
+              loop={false}
+              resizeMode="contain"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </View>
         </View>
 
         <View>

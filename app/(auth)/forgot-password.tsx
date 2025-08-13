@@ -30,7 +30,10 @@ export default function ForgotPassword() {
         />
 
         {/* Submit Button */}
-        <TouchableOpacity className="btn-primary w-full mt-6 py-3 px-4">
+        <TouchableOpacity
+          className="btn-primary w-full mt-6 py-3 px-4"
+          onPress={() => router.push("/(auth)/new-password-success")} // TODO: Change to handleSubmit
+        >
           <Text className="text-white text-center text-base font-medium">
             Send Reset Code
           </Text>
