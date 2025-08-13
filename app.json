@@ -27,7 +27,7 @@
     "splash": {
       "backgroundColor": "#ffffff",
       "resizeMode": "contain",
-      "image": "./assets/images/NexSplit.gif"
+      "image": "./assets/images/splash-icon.png"
     },
     "experiments": {
       "typedRoutes": true
