@@ -5,6 +5,8 @@ node_modules/
 .idea/
 .vscode/
 .cursor/
+android/
+ios/
 
 # Expo
 .expo/

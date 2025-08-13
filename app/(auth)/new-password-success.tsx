@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import LottieView from "lottie-react-native";
 import { useRouter } from "expo-router";
 
-export default function AuthSuccess() {
+export default function NewPasswordSuccess() {
   const router = useRouter();
 
   return (
@@ -12,7 +12,7 @@ export default function AuthSuccess() {
         {/* Lottie Animation */}
         <View className="flex items-center justify-center w-[200px] h-[200px] overflow-hidden">
           <LottieView
-            source={require("../../assets/animation/success.json")}
+            source={require("../../assets/animation/password-reset-success.json")}
             autoPlay
             loop={false}
             resizeMode="contain"
@@ -30,7 +30,7 @@ export default function AuthSuccess() {
           {/* Description */}
           <View className="w-full px-4">
             <Text className="body-text text-center mt-1 sm:mt-2 md:mt-3 text-gray-600 text-xs sm:text-sm md:text-base max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-              Your account was created successfully.
+              Your password was changed successfully.
             </Text>
           </View>
         </View>
