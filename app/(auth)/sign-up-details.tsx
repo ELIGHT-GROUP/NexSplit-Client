@@ -4,7 +4,7 @@ import { FormInput } from "@/components/form";
 import { useRouter } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function SignUp() {
+export default function SignUpDetails() {
   const router = useRouter();
 
   return (
@@ -21,27 +21,28 @@ export default function SignUp() {
         {/* Title */}
         <Text className="heading-lg mb-8">Sign Up</Text>
 
-        {/* Email */}
-        <Text className="label mb-2">Email Address</Text>
-        <FormInput
-          icon="mail"
-          placeholder="example@email.com"
-          keyboardType="email-address"
-        />
+        {/* First & Last Name */}
+        <View className="flex-row space-x-3 mt-4">
+          <View className="flex-1">
+            <Text className="label mb-2">First Name</Text>
+            <FormInput icon="user" placeholder="First name" />
+          </View>
+          <View className="flex-1">
+            <Text className="label mb-2">Last Name</Text>
+            <FormInput icon="user" placeholder="Last name" />
+          </View>
+        </View>
 
-        {/* Password */}
-        <Text className="label mt-4 mb-2">Password</Text>
-        <FormInput icon="lock" placeholder="••••••••" secureTextEntry />
+        {/* Username */}
+        <Text className="label mt-4 mb-2">Username</Text>
+        <FormInput icon="user" placeholder="Username" />
 
-        {/* Confirm Password */}
-        <Text className="label mt-4 mb-2">Confirm Password</Text>
-        <FormInput icon="lock" placeholder="••••••••" secureTextEntry />
+        {/* Contact Number */}
+        <Text className="label mt-4 mb-2">Contact Number</Text>
+        <FormInput icon="phone" placeholder="Contact number" keyboardType="phone-pad" />
 
         {/* Next Button */}
-        <TouchableOpacity
-          className="btn-primary w-full mt-6 py-3 px-4"
-          onPress={() => router.push("/verify-code")}
-        >
+        <TouchableOpacity className="btn-primary w-full mt-6 py-3 px-4" onPress={() => router.push("/sign-up")}>
           <Text className="text-white text-center text-base font-medium">
             Next
           </Text>

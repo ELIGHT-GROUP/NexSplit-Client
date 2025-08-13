@@ -10,11 +10,12 @@
     "lint": "expo lint",
     "docker:build": "docker build -t expo-android-builder .",
     "build:android:prebuild": "docker run --rm -v $(pwd):/app expo-android-builder bash -c \"npm install && npx expo prebuild\"",
-    "build:android:assemble": "docker run --rm -v $(pwd):/app -v $(pwd)/build-output:/app/android/app/build/outputs --memory=6g --cpus=2 expo-android-builder bash -c \"cd android && ./gradlew assembleRelease --info\"",
+    "build:android:assemble": "docker run --rm -v $(pwd):/app -v $(pwd)/build-output:/app/android/app/build/outputs --memory=16g --cpus=4 expo-android-builder bash -c \"cd android && ./gradlew assembleRelease --info\"",
     "build:android": "npm run docker:build && npm run build:android:prebuild && npm run build:android:assemble"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@lottiefiles/dotlottie-react": "^0.14.4",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
@@ -31,6 +32,7 @@
     "expo-symbols": "~0.4.5",
     "expo-system-ui": "~5.0.10",
     "expo-web-browser": "~14.2.0",
+    "lottie-react-native": "7.2.2",
     "nativewind": "^4.1.23",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "react": "19.0.0",
@@ -43,6 +45,7 @@
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
     "tailwindcss": "^3.4.17",
+    "twrnc": "^4.9.1",
     "zustand": "^5.0.7"
   },
   "devDependencies": {

@@ -18,7 +18,7 @@ export default function RootLayout() {
     const timer = setTimeout(() => {
       setShowSplash(false);
       ExpoSplashScreen.hideAsync();
-    }, 15000); 
+    }, 3000); 
 
     return () => clearTimeout(timer);
   }, []);

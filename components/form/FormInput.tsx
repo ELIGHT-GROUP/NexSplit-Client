@@ -6,7 +6,7 @@ interface FormInputProps {
     icon: keyof typeof Feather.glyphMap;
     placeholder: string;
     secureTextEntry?: boolean;
-    keyboardType?: "default" | "email-address";
+    keyboardType?: "default" | "email-address" | "phone-pad";
 }
 
 export default function FormInput({

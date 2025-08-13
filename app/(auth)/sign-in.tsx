@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {View, Text, TouchableOpacity, Image } from "react-native";
 import {AntDesign} from "@expo/vector-icons";
 import {FormInput} from "@/components/form";
@@ -57,10 +57,15 @@ export default function SignIn() {
                 {/* New User */}
                 <View className="flex-row justify-center mt-6">
                     <Text className="text-gray">I’m a new user. </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => router.push("/sign-up-details")}>
                         <Text className="text-[#00AA5B] font-medium">Sign up</Text>
                     </TouchableOpacity>
                 </View>
+
+                {/* Forgot Password */}
+                <TouchableOpacity onPress={() => router.push("/forgot-password")}>
+                    <Text className="text-gray text-center text-sm font-medium mt-4">Forgot Password?</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
