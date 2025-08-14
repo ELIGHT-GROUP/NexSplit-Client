@@ -5,6 +5,8 @@ import { Slot } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "./global.css";
+import { AuthMiddleware } from "@/components/common/AuthMiddleware";
+import { AuthProvider } from "@/context/AuthContext";
 
 ExpoSplashScreen.preventAutoHideAsync();
 
@@ -18,26 +20,20 @@ export default function RootLayout() {
     const timer = setTimeout(() => {
       setShowSplash(false);
       ExpoSplashScreen.hideAsync();
-    }, 3000); 
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   if (showSplash && fontsLoaded) {
-    return (
-      <SplashScreen
-        appName="NexSplit"
-        logoSource={require("../assets/images/icon.png")}
-        backgroundColor="#ffffff"
-        textColor="#333333"
-        showLoadingText={true}
-      />
-    );
+    return <SplashScreen />;
   }
 
   return (
-    <SafeScreen>
-      <Slot />
-    </SafeScreen>
+    <AuthProvider>
+      <SafeScreen>
+        <Slot />
+      </SafeScreen>
+    </AuthProvider>
   );
 }
