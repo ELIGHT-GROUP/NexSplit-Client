@@ -12,7 +12,7 @@
 }
 
 .bg-light {
-    @apply bg-[#F6F6F6];
+    @apply bg-[#FFFFFF];
 }
 
 .bg-light-green {

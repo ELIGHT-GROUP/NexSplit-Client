@@ -22,7 +22,7 @@ export default function AuthSuccess() {
           </View>
         </View>
 
-        <View>
+        <View className="w-full">
           {/* Title */}
           <View className="w-full px-4">
             <Text className="heading-lg text-center mt-2 sm:mt-3 md:mt-4 text-base sm:text-lg md:text-xl">
