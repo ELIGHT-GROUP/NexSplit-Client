@@ -1,21 +1,23 @@
 // AuthMiddleware.tsx
-import { useAuth } from '@/context/AuthContext';
-import React from 'react';
-import SplashScreen from './SplashScreen';
-import { useRouter } from 'expo-router';
+import { useAuth } from "@/context/AuthContext";
+import React, { useEffect } from "react";
+import SplashScreen from "./SplashScreen";
+import { useRouter } from "expo-router";
 
-export const AuthMiddleware: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthMiddleware: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const { token, loading } = useAuth();
   const router = useRouter();
 
-  if (loading) {
-    return (
-      <SplashScreen />
-    );
-  }
+  useEffect(() => {
+    if (!loading && !token) {
+      router.replace("/(auth)/sign-in");
+    }
+  }, [loading, token, router]);
 
-  if (!token) {
-    router.replace('/(auth)/sign-in');
+  if (loading || !token) {
+    return <SplashScreen />;
   }
 
   return <>{children}</>;
