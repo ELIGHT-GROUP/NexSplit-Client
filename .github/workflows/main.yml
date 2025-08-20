@@ -28,7 +28,7 @@ jobs:
         run: docker build -t expo-android-builder .
 
       - name: Run Docker container to prebuild
-        run: docker run --rm -v $(pwd):/app expo-android-builder bash -c "npm install && npx expo prebuild"
+        run: docker run --rm -v $(pwd):/app expo-android-builder bash -c "npm install --legacy-peer-deps && npx expo prebuild"
 
       - name: Run Docker container to assemble release
         run: docker run --rm -v $(pwd):/app -v ${{ github.workspace }}/build-output:/app/android/app/build/outputs --memory=16g --cpus=4 expo-android-builder bash -c "cd android && ./gradlew assembleRelease --info"
