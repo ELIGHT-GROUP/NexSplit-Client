@@ -38,5 +38,5 @@ jobs:
         with:
           name: android-apk
           path: |
-            android/app/build/outputs/apk/release/app-release.apk
-            android/app/build/outputs/apk/debug/app-debug.apk
+            build-output/apk/release/app-release.apk
+            build-output/apk/debug/app-debug.apk
