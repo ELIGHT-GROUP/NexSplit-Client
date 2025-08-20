@@ -1,6 +1,5 @@
 import React from "react";
 import {View, Text, TouchableOpacity, Image } from "react-native";
-import {AntDesign} from "@expo/vector-icons";
 import {FormInput} from "@/components/form";
 import {useRouter} from "expo-router";
 
@@ -11,13 +10,7 @@ export default function SignIn() {
         <View className="flex-1 items-center">
             {/* Content Wrapper (centered & responsive) */}
             <View className="w-full max-w-md px-6 pt-12">
-                {/* Back Button */}
-                <TouchableOpacity
-                    onPress={() => router.back()}
-                    className="mb-6 w-10 h-10 rounded-full items-center justify-center border border-gray-300"
-                >
-                    <AntDesign name="left" size={20} color="black"/>
-                </TouchableOpacity>
+                <view className="mb-6 w-10 h-10"></view>
 
                 {/* Title */}
                 <Text className="heading-lg mb-8">Sign In</Text>
