@@ -10,7 +10,7 @@ export default function SignIn() {
         <View className="flex-1 items-center">
             {/* Content Wrapper (centered & responsive) */}
             <View className="w-full max-w-md px-6 pt-12">
-                <view className="mb-6 w-10 h-10"></view>
+                <View className="mb-6 w-10 h-10"></View>
 
                 {/* Title */}
                 <Text className="heading-lg mb-8">Sign In</Text>

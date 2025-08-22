@@ -5,8 +5,8 @@ import { Slot } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "./global.css";
-import { AuthMiddleware } from "@/components/common/AuthMiddleware";
 import { AuthProvider } from "@/context/AuthContext";
+import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 
 ExpoSplashScreen.preventAutoHideAsync();
 
@@ -30,10 +30,12 @@ export default function RootLayout() {
   }
 
   return (
-    <AuthProvider>
-      <SafeScreen>
-        <Slot />
-      </SafeScreen>
-    </AuthProvider>
+    <ReactQueryProvider>
+      <AuthProvider>
+        <SafeScreen>
+          <Slot />
+        </SafeScreen>
+      </AuthProvider>
+    </ReactQueryProvider>
   );
 }
