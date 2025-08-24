@@ -14,7 +14,7 @@ export default function MainPage() {
         <View className="flex-1 bg-[f8f9fd]">
 
             {/*header panel*/}
-            <view className="p-6 bg-light-green">
+            <View className="p-6 bg-light-green">
                 {/* Header */}
                 <View className="flex-row justify-between items-center mt-4">
                     <View>
@@ -43,7 +43,7 @@ export default function MainPage() {
                     </View>
                 </View>
 
-            </view>
+            </View>
 
             {/* Job List: scroll on mobile, grid on desktop */}
             <FlatList
