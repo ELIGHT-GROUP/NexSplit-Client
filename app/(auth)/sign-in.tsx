@@ -38,7 +38,7 @@ export default function SignIn() {
                 <TouchableOpacity
                     className="flex-row items-center justify-center border border-gray-300 rounded-lg py-3 mt-4">
                     <Image
-                        source={require("../../assets/icons/google.png")}
+                        source={require("@/assets/icons/google.png")}
                         accessibilityLabel="Google Icon"
                         style={{width: 18, height: 18, marginRight: 8}}
                     />

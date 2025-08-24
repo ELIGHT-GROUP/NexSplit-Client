@@ -1,7 +1,7 @@
 // AuthMiddleware.tsx
 import { useAuth } from "@/context/AuthContext";
 import React, { useEffect } from "react";
-import SplashScreen from "../components/common/SplashScreen";
+import SplashScreen from "@/components/common/SplashScreen";
 import { useRouter } from "expo-router";
 
 export const AuthMiddleware: React.FC<{ children: React.ReactNode }> = ({

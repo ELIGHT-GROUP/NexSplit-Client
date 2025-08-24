@@ -13,7 +13,7 @@ export default function AuthSuccess() {
         <View className="flex items-center justify-center w-full">
           <View className="flex items-center justify-center w-[200px] h-[200px] overflow-hidden">
             <LottieView
-              source={require("../../assets/animation/success.json")}
+              source={require("@/assets/animation/success.json")}
               autoPlay
               loop={false}
               resizeMode="contain"

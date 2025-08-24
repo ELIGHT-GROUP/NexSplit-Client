@@ -30,7 +30,7 @@ export default function SplashScreen() {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Animated.View style={{ transform: [{ scale }] }}>
         <Image
-          source={require("../../assets/images/favicon.png")}
+          source={require("@/assets/images/favicon.png")}
           style={{ width: 60, height: 60 }}
           contentFit="contain"
         />
