@@ -7,7 +7,7 @@ const SafeScreen = ({ children }: { children: React.ReactNode }) => {
   const {bgColor} = useBgColor();
 
   return (
-    <View className={`${bgColor} flex-1`} style={{ paddingTop: insets.top }}>
+    <View className={`${bgColor} flex-1`} style={{ paddingTop: insets.top , paddingBottom: insets.bottom }}>
       {children}
       <StatusBar barStyle="default" />
     </View>

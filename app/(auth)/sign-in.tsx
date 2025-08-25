@@ -36,7 +36,7 @@ export default function SignIn() {
 
                 {/* Google Sign In Button */}
                 <TouchableOpacity
-                    className="flex-row items-center justify-center border border-gray-300 rounded-lg py-3 mt-4">
+                    className="flex-row items-center justify-center border bg-light border-gray-300 rounded-lg py-3 mt-4">
                     <Image
                         source={require("@/assets/icons/google.png")}
                         accessibilityLabel="Google Icon"
